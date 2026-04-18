@@ -1,5 +1,7 @@
 # Eagle Eye
 
+![RWS Mode](assets/screenshots/rws_mode.png)
+
 **Airborne Intercept Radar Simulation for Microsoft Flight Simulator**
 
 Eagle Eye is a Windows companion application for Microsoft Flight Simulator (MSFS) that renders a B-scope radar Multi-Function Display for use during virtual aviation tactical intercept operations. It connects to MSFS via SimConnect and provides radar situational awareness that is not natively available in the simulator.
@@ -45,6 +47,8 @@ The radar simulation is loosely based on open-source community analysis of the A
 ---
 
 ## Quick Start
+
+![Menu](docs/screenshots/menu.png)
 
 | Action | Method |
 |--------|--------|
