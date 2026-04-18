@@ -48,7 +48,7 @@ The radar simulation is loosely based on open-source community analysis of the A
 
 ## Quick Start
 
-![Menu](docs/screenshots/menu.png)
+![Menu](assets/screenshots/menu.png)
 
 | Action | Method |
 |--------|--------|
