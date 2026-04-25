@@ -1,7 +1,5 @@
 # Eagle Eye
 
-![RWS Mode](assets/screenshots/rws_mode.png)
-
 **Airborne Intercept Radar Simulation for Microsoft Flight Simulator**
 
 Eagle Eye is a Windows companion application for Microsoft Flight Simulator (MSFS) that renders a B-scope radar Multi-Function Display for use during virtual aviation tactical intercept operations. It connects to MSFS via SimConnect and provides radar situational awareness that is not natively available in the simulator.
@@ -17,9 +15,12 @@ The radar simulation is loosely based on open-source community analysis of the A
 - **Probabilistic detection model** — range, aspect angle, and RCS-dependent detection, loosely based on AN/APG-63 open-source analysis
 - **Flexible scan geometry** — 1/2/4/6/8-bar patterns, ±30°/±60° azimuth, ±60° antenna elevation
 - **GMTR** — Ground Moving Target Rejection with LO / MED / HI / CHAF threshold settings
-- **TWS track management** — tentative, confirmed, and coasting tracks with SPT/PDT designation
+- **TWS track management** — tentative, confirmed, and coasting tracks; up to 1 PDT and 9 SDTs
+- **Collision steering** — floating PIP circle showing the 3D predicted intercept point; manoeuvre to centre for a collision course
+- **Range-limited target carets** — out-of-range contacts flagged at the scope top edge on their azimuth bearing
 - **Bullseye reference** — set a geographic reference point for bearing/range position calls
 - **OSB menu system** — full configuration via on-screen buttons; no dropdown menus
+- **SIM status indicator** — boxed label on the scope confirms SimConnect is connected at a glance
 - **Auto-update** — checks GitHub Releases on startup and prompts if a newer version is available
 
 ---
@@ -48,21 +49,31 @@ The radar simulation is loosely based on open-source community analysis of the A
 
 ## Quick Start
 
-![Menu](assets/screenshots/menu.png)
-
 | Action | Method |
 |--------|--------|
 | Range up / down | **PB15** (▲) / **PB14** (▼) or keys **R** / **F** |
 | Cycle bar pattern | **PB2** or key **B** |
 | Toggle RWS ↔ TWS | **PB7** or key **M** |
 | Designate STT | Left-click a contact |
+| Designate TWS PDT | Left-click a confirmed track |
+| Click TWS PDT | Enters STT on that target |
+| Cycle PDT | **Tab** key in TWS |
 | Break STT lock | **PB7**, right-click, or **Backspace** |
+| Break STT → return to TWS | **PB7** (if STT was entered from TWS) |
 | Cycle GMTR | **PB4** or key **G** |
 | Antenna tilt | Keys **Q** (up) / **A** (down) |
 | Open MENU | **PB11** |
 | Set Bullseye | **PB11** → **PB6 SET BULLS** |
 
 A full keyboard and button reference is included in the [User Manual](docs/EagleEye_UserManual_v1.0.0.docx).
+
+---
+
+## Collision Steering
+
+When a target is locked in STT, or a PDT is designated in TWS, a hollow circle appears on the scope indicating the **Predicted Intercept Point (PIP)**. The calculation is fully 3-dimensional, accounting for own aircraft speed, climb rate, and target altitude.
+
+Manoeuvre to place the circle at the centre of the scope — when centred, the aircraft nose is pointed at the collision course bearing and elevation. A time-to-intercept readout (nearest 5 seconds) is shown beneath the circle.
 
 ---
 
@@ -79,14 +90,16 @@ A full keyboard and button reference is included in the [User Manual](docs/Eagle
 
 The full User Manual is included in the release ZIP and covers installation, all radar modes, symbology, display annunciators, bullseye, MENU page operation, keyboard reference, detection model, and known limitations.
 
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes between versions.
+
 ---
 
 ## Roadmap
 
 | Version | Planned Content |
 |---------|----------------|
-| v1.x | TWS symbology review, selectable Frame Store |
-| v2.0 | Networking (P2P/relay), IFF/HAFU, scenario files |
+| v1.x | Selectable Frame Store, TWS symbology refinements |
+| v2.0 | Networking (P2P/relay), IFF/HAFU, scenario files, per-type RCS |
 | v3.0 | MIDS datalink simulation, AWACS/GCI display variant |
 
 ---
@@ -101,7 +114,9 @@ Eagle Eye is a simulation tool for virtual aviation recreation only. The radar s
 
 Eagle Eye is free and developed in personal time. If you find it useful and want to support continued development, a donation via Ko-fi is greatly appreciated — it helps cover time and any associated costs.
 
-[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/phoenixegmh)
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/YOUR_KOFI_NAME)
+
+> Replace `YOUR_KOFI_NAME` with your Ko-fi username after setting up your page at [ko-fi.com](https://ko-fi.com).
 
 ---
 
